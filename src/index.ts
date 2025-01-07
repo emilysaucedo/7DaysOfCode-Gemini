@@ -5,7 +5,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const app = express();
 const port = 3000;
 
-const genAI = new GoogleGenerativeAI('AIzaSyDcsKnxQGniMenmHSZhOEOq5iZE7_YJ1jY');
+const apiKey = process.env.GEMINI_API_KEY;
+
+const genAI = new GoogleGenerativeAI(apiKey); //mudar para a key
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 app.use(express.json());
